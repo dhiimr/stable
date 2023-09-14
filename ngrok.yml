@@ -1,0 +1,13 @@
+version: "2"
+region: jp
+authtoken: 2Sbtd2lIARrvwHhUJjiJG2ooess_5zRqU72Fzav1nJcDt2XVf
+tunnels:
+  first:
+    proto: http
+    addr: 7860
+  second:
+    proto: tcp
+    addr: 22
+  third:
+    proto: tcp
+    addr: 5900
