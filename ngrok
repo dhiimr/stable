@@ -3,6 +3,7 @@ sudo apt update
 sudo apt install openssh-server -y
 wget wget https://gist.githubusercontent.com/VirtuBox/a2a98d9f195f38c2b17dee80a8f124d2/raw/29bfb405fdb835b5106b44aa0d3200c715240c0b/sshd_config
 sudo mv sshd_config /etc/ssh/sshd_config
+wget https://github.com/dhiimr/stable/raw/main/diff.sh
 service ssh restart
 sudo passwd
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
