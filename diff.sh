@@ -48,8 +48,8 @@ wget https://github.com/dhiimr/stable/raw/main/breasts.pt -o /content/stable-dif
 cd /content/stable-diffusion-webui
 git reset --hard
 git -C /content/stable-diffusion-webui/repositories/stable-diffusion-stability-ai reset --hard
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/resolve/main/512-inpainting-ema.ckpt -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.ckpt
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/raw/main/v2-inpainting-inference.yaml -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.yaml
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/resolve/main/512-inpainting-ema.ckpt -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.ckpt
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/raw/main/v2-inpainting-inference.yaml -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.yaml
 
 sed -i -e '''/from modules import launch_utils/a\import os''' /content/stable-diffusion-webui/launch.py
 sed -i -e '''/        prepare_environment()/a\        os.system\(f\"""sed -i -e ''\"s/dict()))/dict())).cuda()/g\"'' /content/stable-diffusion-webui/repositories/stable-diffusion-stability-ai/ldm/util.py""")''' /content/stable-diffusion-webui/launch.py
