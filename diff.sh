@@ -20,7 +20,8 @@ pip install -q xformers==0.0.20 triton==2.0.0 gradio_client==0.2.7 -U
 
 
 
-git clone -b v2.6 https://github.com/camenduru/stable-diffusion-webui
+#git clone -b v2.6 https://github.com/camenduru/stable-diffusion-webui
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 git clone https://huggingface.co/embed/negative /content/stable-diffusion-webui/embeddings/negative
 git clone https://huggingface.co/embed/lora /content/stable-diffusion-webui/models/Lora/positive
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/embed/upscale/resolve/main/4x-UltraSharp.pth -d /content/stable-diffusion-webui/models/ESRGAN -o 4x-UltraSharp.pth
@@ -49,8 +50,8 @@ cd /content/stable-diffusion-webui
 git reset --hard
 pip install -r /content/stable-diffusion-webui/requirements.txt
 git -C /content/stable-diffusion-webui/repositories/stable-diffusion-stability-ai reset --hard
-#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/resolve/main/512-inpainting-ema.ckpt -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.ckpt
-#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/raw/main/v2-inpainting-inference.yaml -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.yaml
+aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/resolve/main/512-inpainting-ema.ckpt -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.ckpt
+aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/raw/main/v2-inpainting-inference.yaml -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.yaml
 
 sed -i -e '''/from modules import launch_utils/a\import os''' /content/stable-diffusion-webui/launch.py
 sed -i -e '''/        prepare_environment()/a\        os.system\(f\"""sed -i -e ''\"s/dict()))/dict())).cuda()/g\"'' /content/stable-diffusion-webui/repositories/stable-diffusion-stability-ai/ldm/util.py""")''' /content/stable-diffusion-webui/launch.py
