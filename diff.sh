@@ -1,3 +1,4 @@
+#!/bin/bash
 cd /content
 
 env TF_CPP_MIN_LOG_LEVEL=1
@@ -14,12 +15,12 @@ pip install -q xformers==0.0.20 triton==2.0.0 gradio_client==0.2.7 -U
 #sudo dpkg -i cuda-keyring_1.1-1_all.deb
 #sudo apt-get update
 #sudo apt-get -y install cuda
-wget https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda_12.0.0_525.60.13_linux.run
-sudo sh cuda_12.0.0_525.60.13_linux.run
+#wget https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda_12.0.0_525.60.13_linux.run
+#sudo sh cuda_12.0.0_525.60.13_linux.run
 
 
 
-git clone -b v2.4 https://github.com/camenduru/stable-diffusion-webui
+git clone -b v2.6 https://github.com/camenduru/stable-diffusion-webui
 git clone https://huggingface.co/embed/negative /content/stable-diffusion-webui/embeddings/negative
 git clone https://huggingface.co/embed/lora /content/stable-diffusion-webui/models/Lora/positive
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/embed/upscale/resolve/main/4x-UltraSharp.pth -d /content/stable-diffusion-webui/models/ESRGAN -o 4x-UltraSharp.pth
@@ -36,8 +37,8 @@ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg /content
 git clone https://github.com/ashen-sensored/stable-diffusion-webui-two-shot /content/stable-diffusion-webui/extensions/stable-diffusion-webui-two-shot
 git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper /content/stable-diffusion-webui/extensions/sd-webui-aspect-ratio-helper
 git clone https://github.com/tjm35/asymmetric-tiling-sd-webui /content/stable-diffusion-webui/extensions/asymmetric-tiling-sd-webui
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/runwayml/stable-diffusion-inpainting/resolve/main/sd-v1-5-inpainting.ckpt -d /content/stable-diffusion-webui/models/Stable-diffusion -o sd-v1-5-inpainting.ckpt
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/12873 -d /content/stable-diffusion-webui/models/Lora -o innievag.safetensors
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/runwayml/stable-diffusion-inpainting/resolve/main/sd-v1-5-inpainting.ckpt -d /content/stable-diffusion-webui/models/Stable-diffusion -o sd-v1-5-inpainting.ckpt
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/12873 -d /content/stable-diffusion-webui/models/Lora -o innievag.safetensors
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16677 -d /content/stable-diffusion-webui/models/Lora -o mix4.safetensors
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/23250 -d /content/stable-diffusion-webui/models/Lora -o breastBetter.safetensors
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/31284 -d /content/stable-diffusion-webui/models/Lora -o koreanDoll.safetensors
@@ -53,4 +54,4 @@ aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckp
 sed -i -e '''/from modules import launch_utils/a\import os''' /content/stable-diffusion-webui/launch.py
 sed -i -e '''/        prepare_environment()/a\        os.system\(f\"""sed -i -e ''\"s/dict()))/dict())).cuda()/g\"'' /content/stable-diffusion-webui/repositories/stable-diffusion-stability-ai/ldm/util.py""")''' /content/stable-diffusion-webui/launch.py
 sed -i -e 's/\["sd_model_checkpoint"\]/\["sd_model_checkpoint","sd_vae","CLIP_stop_at_last_layers"\]/g' /content/stable-diffusion-webui/modules/shared.py
-python launch.py --enable-insecure-extension-access --disable-safe-unpickle --xformers --no-hashing --disable-console-progressbars --opt-sub-quad-attention --opt-channelslast --no-download-sd-model --gradio-queue --listen --ckpt-dir=/content/stable-diffusion-webui/models/Stable-diffusion --vae-dir=/content/stable-diffusion-webui/models/VAE --hypernetwork-dir=/content/stable-diffusion-webui/models/hypernetworks --embeddings-dir=/content/stable-diffusion-webui/embeddings --lora-dir=/content/stable-diffusion-webui/models/Lora --lowram --theme dark --no-half-vae
+python launch.py --enable-insecure-extension-access --disable-safe-unpickle --xformers --no-hashing --disable-console-progressbars --ngrok=2UvgnHcqINMaPdZyLM0p6rgrcw4_3NdbUmE2pRd712jxVAdAJ --ngrok-region=jp --opt-sub-quad-attention --opt-channelslast --no-download-sd-model --gradio-queue --listen --ckpt-dir=/content/stable-diffusion-webui/models/Stable-diffusion --vae-dir=/content/stable-diffusion-webui/models/VAE --hypernetwork-dir=/content/stable-diffusion-webui/models/hypernetworks --embeddings-dir=/content/stable-diffusion-webui/embeddings --lora-dir=/content/stable-diffusion-webui/models/Lora --lowram --theme dark --no-half-vae
