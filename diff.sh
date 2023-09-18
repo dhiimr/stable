@@ -42,7 +42,7 @@ git clone https://github.com/tjm35/asymmetric-tiling-sd-webui /content/stable-di
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16677 -d /content/stable-diffusion-webui/models/Lora -o mix4.safetensors
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/23250 -d /content/stable-diffusion-webui/models/Lora -o breastBetter.safetensors
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/31284 -d /content/stable-diffusion-webui/models/Lora -o koreanDoll.safetensors
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/94604 -d /content/stable-diffusion-webui/models/Lora -o realisticbreastsv2.safetensors
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/94604 -d /content/stable-diffusion-webui/models/Lora -o realisticbreastsv2.safetensors
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/87262 -d /content/stable-diffusion-webui/models/Lora -o realisticbreastsv2.safetensors
 aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/159916 -d /content/stable-diffusion-webui/models/Lora -o transexual_V2.safetensors
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/7935 -d /content/stable-diffusion-webui/models/Stable-diffusion -o realisticVisionV51_v13-inpainting.safetensors
