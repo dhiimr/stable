@@ -39,12 +39,15 @@ git clone https://github.com/thomasasfk/sd-webui-aspect-ratio-helper /content/st
 git clone https://github.com/tjm35/asymmetric-tiling-sd-webui /content/stable-diffusion-webui/extensions/asymmetric-tiling-sd-webui
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/runwayml/stable-diffusion-inpainting/resolve/main/sd-v1-5-inpainting.ckpt -d /content/stable-diffusion-webui/models/Stable-diffusion -o sd-v1-5-inpainting.ckpt
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/12873 -d /content/stable-diffusion-webui/models/Lora -o innievag.safetensors
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16677 -d /content/stable-diffusion-webui/models/Lora -o mix4.safetensors
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/23250 -d /content/stable-diffusion-webui/models/Lora -o breastBetter.safetensors
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/31284 -d /content/stable-diffusion-webui/models/Lora -o koreanDoll.safetensors
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/16677 -d /content/stable-diffusion-webui/models/Lora -o mix4.safetensors
+gdown 1-H-yhExxn1SQ3Dbk62Nn4Hqr03HpkpAE -O content/stable-diffusion-webui/models/Lora/
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/23250 -d /content/stable-diffusion-webui/models/Lora -o breastBetter.safetensors
+gdown 1-NpRmubKwqCvwWs3CBXM8mDFHp-0LNx2 -O /content/stable-diffusion-webui/models/Lora/
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/31284 -d /content/stable-diffusion-webui/models/Lora -o koreanDoll.safetensors
+gdown 1-QqgpRPoZHEU3CoPu2jeSEEBoGdCLPSn -O content/stable-diffusion-webui/models/Lora/
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/94604 -d /content/stable-diffusion-webui/models/Lora -o realisticbreastsv2.safetensors
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/87262 -d /content/stable-diffusion-webui/models/Lora -o realisticbreastsv2.safetensors
-aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/159916 -d /content/stable-diffusion-webui/models/Lora -o transexual_V2.safetensors
+#aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/159916 -d /content/stable-diffusion-webui/models/Lora -o transexual_V2.safetensors
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://civitai.com/api/download/models/7935 -d /content/stable-diffusion-webui/models/Stable-diffusion -o realisticVisionV51_v13-inpainting.safetensors
 
 cd /content/stable-diffusion-webui
@@ -54,7 +57,7 @@ git -C /content/stable-diffusion-webui/repositories/stable-diffusion-stability-a
 #aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/ckpt/stable-diffusion-2-inpainting/raw/main/v2-inpainting-inference.yaml -d /content/stable-diffusion-webui/models/Stable-diffusion -o 512-inpainting-ema.yaml
 #cp /content/drive/MyDrive/SD/models/Stable-diffusion/realisticVisionV51_v13-inpainting.safetensors /content/stable-diffusion-webui/models/Stable-diffusion/
 #rsync -ah --progress /content/drive/MyDrive/SD/models/Stable-diffusion/realisticVisionV51_v13-inpainting.safetensors /content/stable-diffusion-webui/models/Stable-diffusion/
-gdown --id 107M-W8f11I4-sKwFqAKxxfS4Y412Vn3j -O /content/stable-diffusion-webui/models/Stable-diffusion/
+gdown 107M-W8f11I4-sKwFqAKxxfS4Y412Vn3j -O /content/stable-diffusion-webui/models/Stable-diffusion/
 #wget https://github.com/dhiimr/stable/raw/main/small_tits.pt -o /content/stable-diffusion-webui/embeddings/small_tits.pt 
 #wget https://github.com/dhiimr/stable/raw/main/breasts.pt -o /content/stable-diffusion-webui/embeddings/breasts.pt
 sed -i -e '''/from modules import launch_utils/a\import os''' /content/stable-diffusion-webui/launch.py
