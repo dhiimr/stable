@@ -1,4 +1,4 @@
-rm tes.sh
+#!/bin/bash
 sudo apt update
 sudo apt install openssh-server -y
 wget wget https://gist.githubusercontent.com/VirtuBox/a2a98d9f195f38c2b17dee80a8f124d2/raw/29bfb405fdb835b5106b44aa0d3200c715240c0b/sshd_config
